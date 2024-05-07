@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 
 public class Locators {
     // Account button to open the login or register modal
-    public static final By ACCOUNT_BUTTON = By.xpath("//header/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/a[1]/span[1]");
+   /* + */ public static final By ACCOUNT_BUTTON = By.xpath("//header/div[1]/div[2]/div[1]/div[1]/div[3]/div[2]/a[1]/span[1]");
 
     // Username or email field in the login/register modal
-    public static final By USERNAME_FIELD = By.cssSelector("#username"); // CSS Selector is preferred here as it's more stable
+    public static final By USERNAME_FIELD = By.cssSelector("#username");
 
     // Password field in the login/register modal
-    public static final By PASSWORD_FIELD = By.cssSelector("#password"); // Using CSS Selector for stability
+    public static final By PASSWORD_FIELD = By.cssSelector("#password");
 
     // Login button in the login/register modal
     public static final By LOGIN_BUTTON = By.xpath("//button[contains(text(),'Log in')]"); // XPath that targets button by its text

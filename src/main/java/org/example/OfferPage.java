@@ -99,4 +99,12 @@ public class OfferPage {
         wait.until(ExpectedConditions.visibilityOfElementLocated(Locators.OFFER_PAGE_CAKE_2_FLOOR)).click();
     }
 
+    public WebElement getPhoneErrorField() {
+        return driver.findElement(Locators.PHONE_ERROR_FIELD);
+    }
+
+    public WebElement getEmailErrorField()
+    {
+        return driver.findElement(Locators.EMAIL_ERROR_FIELD);
+    }
 }

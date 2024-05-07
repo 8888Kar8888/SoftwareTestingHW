@@ -31,14 +31,15 @@ public class Case2 extends BaseTest
         homePage2.click_ORGANIC_MASCARA_2();
         OfferPage offerPage = homePage2.clickOfferButton();
         offerPage.submitOffer();
-        Thread.sleep(3000);
+        Thread.sleep(6000);
 
-        WebElement messageElement1 = getDriver().findElement(Locators.EMAIL_ERROR_FIELD);
+        WebElement messageElement1 = offerPage.getEmailErrorField();//getDriver().findElement(Locators.EMAIL_ERROR_FIELD);
         String actualMessage1 = messageElement1.getText();
         Assert.assertEquals(actualMessage1, AssertionMessages.FIELD_IS_REQUIRED, "The expected message at location 1 is not correct.");
 
         // Check for the message at the second location
-        WebElement messageElement2 = getDriver().findElement(Locators.PHONE_ERROR_FIELD);
+       // Thread.sleep(3000);
+        WebElement messageElement2 = offerPage.getPhoneErrorField();//getDriver().findElement(Locators.PHONE_ERROR_FIELD);
         String actualMessage2 = messageElement2.getText();
         Assert.assertEquals(actualMessage2, AssertionMessages.FIELD_IS_REQUIRED, "The expected message at location 2 is not correct.");
 

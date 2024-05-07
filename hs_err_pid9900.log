@@ -1,0 +1,234 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 268435456 bytes. Error detail: G1 virtual space
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   This process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+#   JVM is running with Zero Based Compressed Oops mode in which the Java heap is
+#     placed in the first 32GB address space. The Java Heap base address is the
+#     maximum limit for the native heap growth. Please use -XX:HeapBaseMinAddress
+#     to set the Java Heap base and to place the Java Heap above 32GB virtual address.
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_windows.cpp:3631), pid=9900, tid=2292
+#
+# JRE version:  (22.0+36) (build )
+# Java VM: OpenJDK 64-Bit Server VM (22+36-2370, mixed mode, sharing, tiered, compressed oops, compressed class ptrs, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\lib\idea_rt.jar=51009:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 com.intellij.rt.testng.RemoteTestNGStarter -usedefaultlisteners false -socket51008 @w@C:\Users\KAROTA~1\AppData\Local\Temp\idea_working_dirs_testng1.tmp -temp C:\Users\KAROTA~1\AppData\Local\Temp\idea_testng1.tmp
+
+Host: Intel(R) Core(TM) i7-4870HQ CPU @ 2.50GHz, 8 cores, 15G,  Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+Time: Tue May  7 17:23:49 2024 Caucasus Standard Time elapsed time: 0.025528 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001888da87720):  JavaThread "Unknown thread" [_thread_in_vm, id=2292, stack(0x0000006682300000,0x0000006682400000) (1024K)]
+
+Stack: [0x0000006682300000,0x0000006682400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x6e2349]  (no source info available)
+V  [jvm.dll+0x874ed3]  (no source info available)
+V  [jvm.dll+0x8772fe]  (no source info available)
+V  [jvm.dll+0x8779d3]  (no source info available)
+V  [jvm.dll+0x27fcb6]  (no source info available)
+V  [jvm.dll+0x6de9e5]  (no source info available)
+V  [jvm.dll+0x6d34ea]  (no source info available)
+V  [jvm.dll+0x35892a]  (no source info available)
+V  [jvm.dll+0x360e56]  (no source info available)
+V  [jvm.dll+0x3b3d7e]  (no source info available)
+V  [jvm.dll+0x3b4028]  (no source info available)
+V  [jvm.dll+0x32c4ec]  (no source info available)
+V  [jvm.dll+0x32d0a8]  (no source info available)
+V  [jvm.dll+0x83cd9c]  (no source info available)
+V  [jvm.dll+0x3c0cc1]  (no source info available)
+V  [jvm.dll+0x825d8c]  (no source info available)
+V  [jvm.dll+0x45b9ee]  (no source info available)
+V  [jvm.dll+0x45d871]  (no source info available)
+C  [jli.dll+0x52a3]  (no source info available)
+C  [ucrtbase.dll+0x21bb2]  (no source info available)
+C  [KERNEL32.DLL+0x17344]  (no source info available)
+C  [ntdll.dll+0x526b1]  (no source info available)
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ffa7b66c1c8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+Total: 0
+
+Other Threads:
+  0x000001888fc5f9b0 WorkerThread "GC Thread#0"                     [id=10448, stack(0x0000006682400000,0x0000006682500000) (1024K)]
+  0x000001888fc708f0 ConcurrentGCThread "G1 Main Marker"            [id=10392, stack(0x0000006682500000,0x0000006682600000) (1024K)]
+  0x000001888fc71ab0 WorkerThread "G1 Conc#0"                       [id=3320, stack(0x0000006682600000,0x0000006682700000) (1024K)]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa7adbf2b7]
+VM state: not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00007ffa7b6eccc8] Heap_lock - owner thread: 0x000001888da87720
+
+Heap address: 0x0000000701600000, size: 4074 MB, Compressed Oops mode: Zero based, Oop shift amount: 3
+
+CDS archive(s) mapped at: [0x0000000000000000-0x0000000000000000-0x0000000000000000), size 0, SharedBaseAddress: 0x0000000800000000, ArchiveRelocationMode: 1.
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0, Narrow klass range: 0x0
+
+GC Precious Log:
+ CardTable entry size: 512
+ Card Set container configuration: InlinePtr #cards 4 size 8 Array Of Cards #cards 16 size 48 Howl #buckets 8 coarsen threshold 3686 Howl Bitmap #cards 512 size 80 coarsen threshold 460 Card regions per heap region 1 cards per card region 4096
+
+Heap:
+ garbage-first heap   total reserved 4171776K, committed 0K, used 0K [0x0000000701600000, 0x0000000800000000)
+  region size 2048K, 0 young (0K), 0 survivors (0K)
+
+[error occurred during error reporting (printing heap information), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa7b1be4e9]
+GC Heap History (0 events):
+No events
+
+Dll operation events (1 events):
+Event: 0.015 Loaded shared library C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\java.dll
+
+Deoptimization events (0 events):
+No events
+
+Classes loaded (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+ZGC Phase Switch (0 events):
+No events
+
+VM Operations (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+0x00007ff7b1a20000 - 0x00007ff7b1a2e000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\java.exe
+0x00007ffaf38f0000 - 0x00007ffaf3ae8000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffaf1b00000 - 0x00007ffaf1bbd000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffaf1590000 - 0x00007ffaf1886000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffaf1460000 - 0x00007ffaf1560000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffaeb960000 - 0x00007ffaeb977000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\jli.dll
+0x00007ffaeb980000 - 0x00007ffaeb99b000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\VCRUNTIME140.dll
+0x00007ffaf29e0000 - 0x00007ffaf2b7f000 	C:\Windows\System32\USER32.dll
+0x00007ffaf1560000 - 0x00007ffaf1582000 	C:\Windows\System32\win32u.dll
+0x00007ffaf2460000 - 0x00007ffaf248b000 	C:\Windows\System32\GDI32.dll
+0x00007ffaf1340000 - 0x00007ffaf1457000 	C:\Windows\System32\gdi32full.dll
+0x00007ffae49e0000 - 0x00007ffae4c7a000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5\COMCTL32.dll
+0x00007ffaf1050000 - 0x00007ffaf10ed000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffaf3450000 - 0x00007ffaf34ee000 	C:\Windows\System32\msvcrt.dll
+0x00007ffaf2720000 - 0x00007ffaf2752000 	C:\Windows\System32\IMM32.DLL
+0x00007ffaeb950000 - 0x00007ffaeb95c000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\vcruntime140_1.dll
+0x00007ffaeb880000 - 0x00007ffaeb90e000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\msvcp140.dll
+0x00007ffa7aa80000 - 0x00007ffa7b7c8000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\server\jvm.dll
+0x00007ffaf27f0000 - 0x00007ffaf28a0000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffaf2eb0000 - 0x00007ffaf2f50000 	C:\Windows\System32\sechost.dll
+0x00007ffaf2330000 - 0x00007ffaf2453000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffaf1250000 - 0x00007ffaf1277000 	C:\Windows\System32\bcrypt.dll
+0x00007ffaf2760000 - 0x00007ffaf27cb000 	C:\Windows\System32\WS2_32.dll
+0x00007ffaf0530000 - 0x00007ffaf057b000 	C:\Windows\SYSTEM32\POWRPROF.dll
+0x00007ffae6f60000 - 0x00007ffae6f87000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffae99c0000 - 0x00007ffae99ca000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffaf03a0000 - 0x00007ffaf03b2000 	C:\Windows\SYSTEM32\UMPDC.dll
+0x00007ffaeee30000 - 0x00007ffaeee42000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffaeb940000 - 0x00007ffaeb94a000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\jimage.dll
+0x00007ffae04e0000 - 0x00007ffae06c4000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffadfd30000 - 0x00007ffadfd64000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffaf1890000 - 0x00007ffaf1912000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffaeb840000 - 0x00007ffaeb84f000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\instrument.dll
+0x00007ffaeb920000 - 0x00007ffaeb93e000 	C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\java.dll
+0x00007ffaf1bc0000 - 0x00007ffaf232b000 	C:\Windows\System32\SHELL32.dll
+0x00007ffaf19d0000 - 0x00007ffaf1afb000 	C:\Windows\System32\ole32.dll
+0x00007ffaf34f0000 - 0x00007ffaf3843000 	C:\Windows\System32\combase.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.19041.3636_none_60b6a03d71f818d5;C:\Users\Karo Tashchyan\.jdks\openjdk-22\bin\server
+
+VM Arguments:
+jvm_args: -ea -Didea.test.cyclic.buffer.size=1048576 -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\lib\idea_rt.jar=51009:C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\bin -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 
+java_command: com.intellij.rt.testng.RemoteTestNGStarter -usedefaultlisteners false -socket51008 @w@C:\Users\KAROTA~1\AppData\Local\Temp\idea_working_dirs_testng1.tmp -temp C:\Users\KAROTA~1\AppData\Local\Temp\idea_testng1.tmp
+java_class_path (initial): C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\lib\idea_rt.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2024.1\plugins\testng\lib\testng-rt.jar;C:\Users\Karo Tashchyan\IdeaProjects\Homework3.1ST\target\test-classes;C:\Users\Karo Tashchyan\IdeaProjects\Homework3.1ST\target\classes;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-java\4.19.1\selenium-java-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-api\4.19.1\selenium-api-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.19.1\selenium-chrome-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.19.1\selenium-chromium-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-json\4.19.1\selenium-json-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.19.1\selenium-manager-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v121\4.19.1\selenium-devtools-v121-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v122\4.19.1\selenium-devtools-v122-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v123\4.19.1\selenium-devtools-v123-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.19.1\selenium-devtools-v85-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.19.1\selenium-edge-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.19.1\selenium-firefox-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-http\4.19.1\selenium-http-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.19.1\selenium-ie-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.19.1\selenium-remote-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\guava\guava\33.1.0-jre\guava-33.1.0-jre.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\guava\failureaccess\1.0.2\failureaccess-1.0.2.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\Karo Tashchyan\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\errorprone\error_prone_annotations\2.26.1\error_prone_annotations-2.26.1.jar;C:\Users\Karo Tashchyan\.m2\repository\com\google\j2objc\j2objc-annotations\3.0.0\j2objc-annotations-3.0.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.23.1-alpha\opentelemetry-semconv-1.23.1-alpha.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-api\1.36.0\opentelemetry-api-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-context\1.36.0\opentelemetry-context-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.36.0\opentelemetry-exporter-logging-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.36.0\opentelemetry-sdk-common-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.36.0\opentelemetry-sdk-extension-autoconfigure-spi-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.36.0\opentelemetry-sdk-extension-autoconfigure-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-api-events\1.36.0-alpha\opentelemetry-api-events-1.36.0-alpha.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.36.0\opentelemetry-sdk-trace-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-extension-incubator\1.36.0-alpha\opentelemetry-extension-incubator-1.36.0-alpha.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.36.0\opentelemetry-sdk-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.36.0\opentelemetry-sdk-metrics-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.36.0\opentelemetry-sdk-logs-1.36.0.jar;C:\Users\Karo Tashchyan\.m2\repository\net\bytebuddy\byte-buddy\1.14.12\byte-buddy-1.14.12.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-os\4.19.1\selenium-os-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\apache\commons\commons-exec\1.3\commons-exec-1.3.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.19.1\selenium-safari-driver-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\seleniumhq\selenium\selenium-support\4.19.1\selenium-support-4.19.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\testng\testng\7.10.1\testng-7.10.1.jar;C:\Users\Karo Tashchyan\.m2\repository\org\slf4j\slf4j-api\1.7.36\slf4j-api-1.7.36.jar;C:\Users\Karo Tashchyan\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\Karo Tashchyan\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+   size_t InitialHeapSize                          = 268435456                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4271898624                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 4271898624                             {manageable} {ergonomic}
+     bool UseCompressedOops                        = true                           {product lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags foldmultilines=false
+ #1: stderr all=off uptime,level,tags foldmultilines=false
+
+Environment Variables:
+PATH=C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\nodejs\NodeJS\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Karo Tashchyan\AppData\Local\Microsoft\WindowsApps;C:\Users\Karo Tashchyan\.dotnet\tools;C:\Users\Karo Tashchyan\AppData\Roaming\npm
+USERNAME=Karo Tashchyan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 70 Stepping 1, GenuineIntel
+TMP=C:\Users\KAROTA~1\AppData\Local\Temp
+TEMP=C:\Users\KAROTA~1\AppData\Local\Temp
+
+
+
+
+Periodic native trim disabled
+
+---------------  S Y S T E M  ---------------
+
+OS:
+ Windows 10 , 64 bit Build 19041 (10.0.19041.3636)
+OS uptime: 0 days 0:10 hours
+Hyper-V role detected
+
+CPU: total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 70 stepping 1 microcode 0x1c, cx8, cmov, fxsr, ht, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, lzcnt, tsc, tscinvbit, avx, avx2, aes, erms, clmul, bmi1, bmi2, fma, vzeroupper, clflush, hv, rdtscp, f16c
+Processor Information for all 8 processors :
+  Max Mhz: 2501, Current Mhz: 2500, Mhz Limit: 2475
+
+Memory: 4k page, system-wide physical 16292M (635M free)
+TotalPageFile size 19725M (AvailPageFile size 64M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 61M, peak: 316M
+
+vm_info: OpenJDK 64-Bit Server VM (22+36-2370) for windows-amd64 JRE (22+36-2370), built on 2024-02-15T22:15:19Z by "mach5one" with MS VC++ 17.6 (VS2022)
+
+END.

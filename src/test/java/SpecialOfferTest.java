@@ -7,7 +7,8 @@ import org.testng.annotations.Listeners;
 public class SpecialOfferTest extends BaseTest
 {
     @Test
-    public void TestingSpecialOffer() {
+    public void TestingSpecialOffer()
+    {
         homePage.click_ORGANIC_MASCARA_2();
         OfferPage offerPage = homePage.clickOfferButton();
         offerPage.OrderingCake();
@@ -19,6 +20,4 @@ public class SpecialOfferTest extends BaseTest
         // Check if the success message is displayed
         Assert.assertTrue(!successMessage.isEmpty(), "Success message not displayed after submitting the special offer form.");
     }
-
-
 }
